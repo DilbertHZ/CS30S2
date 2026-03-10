@@ -153,12 +153,15 @@ public class LocalBank {
 		buttonProcess.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {	
 				
+				//Checks the users selection, and ensures that the necessary information isn't absent
 				if (actionSelector.getSelectedItem().equals("Deposit") && !textAccNumber.getText().equals("") && !textAmount.getText().equals(""))
 				 {
+					//Tries to complete the action with the provided information
 					try
 					{
 						labelInfo.setText(bank.transaction(1, textAccNumber.getText(), Double.parseDouble(textAmount.getText())));
 					}
+					//Catches invalid information eg: a string when an int is required
 					catch(NumberFormatException e1)
 					{
 						labelInfo.setText("Please enter a numeric value");
@@ -199,6 +202,7 @@ public class LocalBank {
 					 labelInfo.setText("Please enter all necessary information");
 				 }
 				
+				//Resets all text fields
 				textAccNumber.setText("");
 				textAmount.setText("");
 				textfName.setText("");

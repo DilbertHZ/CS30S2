@@ -57,75 +57,84 @@ public class TicTacToe {
 	
 	public boolean winCheckHorizontal(int[][] array)
 	{
-	    for (int i = 0; i <= 2; i++) {
-	    	//System.out.println("Horizontal Test:"); //I used these prints to ensure the method was checking the correct data
-	    	//System.out.println(array[i][0]);
-			//System.out.println(array[i][1]);
-			//System.out.println(array[i][2]);
+	    for (int i = 0; i <= 2; i++) 
+	    {
 	    	
 	    	if (
-	    			((array[i][0] == array[i][1]) && (array[i][0] == array[i][2]))
-	    			&& (array[i][0] != 0)
-	    			&& (array[i][1] != 0)
-	    			&& (array[i][2] != 0)) {
+	    		//Checks if all values across a row are equal
+	    		((array[i][0] == array[i][1]) && (array[i][0] == array[i][2])) 
+	    		//Ensures that values aren't a placeholder
+	    		&& (array[i][0] != 0) 
+	    		&& (array[i][1] != 0)
+	    		&& (array[i][2] != 0)) 
+	    	{
 	    		return true;
 	    	}
-	    } return false; //If wincon isn't met returns false for the winCheckMaster method 
+	    } 
+	    return false; //If win condition isn't met returns false for the winCheckMaster method 
 	}
 	
 	public boolean winCheckVertical(int[][] array)
 	{
-		for (int i = 0; i <= 2; i++) {
-			//System.out.println("Vertical Test:"); //Same as the above prints
-			//System.out.println(array[0][i]);
-			//System.out.println(array[1][i]);
-			//System.out.println(array[2][i]);
-			
+		for (int i = 0; i <= 2; i++) 
+		{
 			if(
+					//Checks if the values going down a column are equal
 					(array[0][i] == array[1][i]) && (array[0][i] == array[2][i]) 
-					&& (array[0][i] != 0) && (array[1][i] != 0) && (array[2][i] != 0)
-					) return true;
-		} return false; //If wincon isn't met returns false for the winCheckMaster method 
+					//Ensures that values aren't a placeholder
+					&& (array[0][i] != 0) 
+					&& (array[1][i] != 0) 
+					&& (array[2][i] != 0)) 
+			{
+				return true;
+			}
+		} 
+		return false; //If win condition isn't met returns false for the winCheckMaster method 
 	}
 	
 	public boolean winCheckDiagonal(int[][] array)
 	{
-		//System.out.println("Diagonal Test:"); //Same as the above prints
-		//System.out.println(array[0][0]);
-		//System.out.println(array[1][1]);
-		//System.out.println(array[2][2]);
-		//System.out.println(array[0][2]);
-		//System.out.println(array[2][0]);
-		
 		if(		
+				//Checks if the top left / middle / bottom right are equal
 				(array[0][0] == array[1][1]) && (array[0][0] == array[2][2])
+				//Ensures that values aren't a placeholder
 				&& (array[0][0] != 0) 
 				&& (array[1][1] != 0) 
 				&& (array[2][2] != 0) 
-				) {return true; 
-		} else if (
+				) 
+		{
+			return true; 
+		} 
+		else if (
+				//Checks if the top right / middle / bottom left are equal
 				((array[0][2] == array[1][1]) && (array[0][2] == array[2][0]))
+				//Ensures that values aren't a placeholder
 				&& (array[0][2] != 0) 
 				&& (array[1][1] != 0) 
 				&& (array[2][0] != 0)
-				) {return true; 
+				) 
+		{
+			return true; 
 		}
-		return false; //If wincon isn't met returns false for the winCheckMaster method 
+		return false; //If win condition isn't met returns false for the winCheckMaster method 
 	}
 	
-	public boolean winCheckMaster()
+	public boolean winCheckMaster() //Calls all the winCheck methods, returns a boolean, true = winner false = no winner.
 	{
-		if (winCheckVertical(win)) {
-			//System.out.println("Vertical Win"); //These are to check the exact win type
+		if (winCheckVertical(win)) 
+		{
 			return true;
-		} else if (winCheckHorizontal(win)) {
-			//System.out.println("Horizontal Win"); //Another test message
+		} 
+		else if (winCheckHorizontal(win)) 
+		{
 			return true;
-		} else if (winCheckDiagonal(win)) {
-			//System.out.println("Diagonal Win"); //Another test message
+		} 
+		else if (winCheckDiagonal(win)) 
+		{
 			return true;
-		} else {
-			//System.out.println("No Winner Currently"); //Another test message
+		} 
+		else 
+		{
 			return false;
 		}
 		
@@ -133,10 +142,12 @@ public class TicTacToe {
 	
 	public String turnTracker()
 	{
-		//Checks what turn it is, this is to display the final win message 
-		if (tracker == true) { 
+		//Checks what turn it is, this is to display the final win message. If it is now O's turn, X just won and vice-versa
+		if (tracker == true) 
+		{ 
 			return "O";
-		} return "X";
+		} 
+		return "X";
 	}
 	
 	public void initialize() {
@@ -159,20 +170,23 @@ public class TicTacToe {
 		JButton TL = new JButton("");
 		TL.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (tracker) {
+				if (tracker) //Checks which users turn it is
+				{
 					//Sets box text
 					TL.setText("x");
 					//Changes turn
 					tracker = false;
 					//Sets box value in array
 					win[0][0] = 1;
-				} else { //Everything here is the opposite of the aforementioned 
+				} 
+				else //Everything here is the opposite of the aforementioned 
+				{ 
 					TL.setText("o");
 					tracker = true;
 					win[0][0] = 2;
 				}
-				if (winCheckMaster()) {
-					//Checks if the turn resulted in a winner
+				if (winCheckMaster()) //Checks if the turn resulted in a winner
+				{
 					winAnnouncer.setText(turnTracker() + " Wins!");
 				}
 			}

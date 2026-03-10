@@ -88,28 +88,42 @@ public class BreakAPlate {
 			
 			public void actionPerformed(ActionEvent e) {
 				
+				//Sets icons to default
 				platesImg.setIcon(platesAllBroken);
 				prizeImg.setIcon(placeholder);
 				
-				if (playButton.getText() == "Play") {
+				//Checks if it is the first turn
+				if (playButton.getText() == "Play") 
+				{
 					
+					//Generates 3 random ints ranging from 1 - 0. 
 					int firstRoll = (int)(Math.random() * 2); 
 					int secondRoll = (int)(Math.random() * 2); 
 					int thirdRoll = (int)(Math.random() * 2); 
 					
-					if (firstRoll == 0 && secondRoll == 0 && thirdRoll == 0) {
+					//Checks if all 3 random ints = 0, if the user has won
+					if (firstRoll == 0 && secondRoll == 0 && thirdRoll == 0) 
+					{
+						//Displays the image of the broken plates
 						platesImg.setIcon(platesAllBroken);
+						//Displays the prize
 						prizeImg.setIcon(tiger);
 					}
-					else {
+					else 
+					{
+						//Displays the image of the partially broken plates
 						platesImg.setIcon(platesTwoBroken);
+						//Displays the consolation prize
 						prizeImg.setIcon(sticker);
 					}
-					
+					//Changes the "Play" button to "Play Again"
 					playButton.setText("Play Again");
 					
 				}
-				else if (playButton.getText() == "Play Again") {
+				//Checks if a game has just been played
+				else if (playButton.getText() == "Play Again") 
+				{
+					//Prepares the game to be played again
 					platesImg.setIcon(plates);
 					prizeImg.setIcon(placeholder);
 					playButton.setText("Play");
