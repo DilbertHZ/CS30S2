@@ -1,3 +1,15 @@
+/*
+
+Program: BreakAPlate.java          Last Date of this Revision: March 5, 2026
+
+Purpose: An application that checks if 3 random numbers are equal to zero, if so the user wins.
+
+Author: Hunter Zahn, 
+School: CHHS
+Course: Computer Programming 3010
+
+*/
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;

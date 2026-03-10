@@ -1,3 +1,15 @@
+/*
+
+Program: BreakAPlate.java          Last Date of this Revision: March 5, 2026
+
+Purpose: An application that allows a user to create, delete, or access a bank account. Along with deposit, withdraw, or check funds. 
+
+Author: Hunter Zahn, 
+School: CHHS
+Course: Computer Programming 3010
+
+*/
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;

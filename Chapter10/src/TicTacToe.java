@@ -1,3 +1,15 @@
+/*
+
+Program: TicTacToe.java          Last Date of this Revision: March 5, 2026
+
+Purpose: An application that works as a game of TicTacToe between two users.
+
+Author: Hunter Zahn, 
+School: CHHS
+Course: Computer Programming 3010
+
+*/
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
