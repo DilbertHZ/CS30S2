@@ -1,3 +1,16 @@
+/*
+
+Program: CountVowels.java          Last Date of this Revision: April 9, 2026
+
+Purpose: An application that counts the number of vowels within a file.
+
+Author: Hunter Zahn, 
+School: CHHS
+Course: Computer Programming 30
+ 
+
+*/
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -55,15 +68,19 @@ public class CountVowels
 
 				}
     	   		
-    	   		//user wants to know the number of vowels inside a file name
+    	   		//User wants to know the number of vowels inside a file name
+    	   		//iterates through file name
     	   		for (int i = 0; i < textFile.getName().length(); i++)
 	   			{
+    	   		//using the String class 
+                    //check if each character traverse through is a vowel
 	   				if (vowels.contains(String.valueOf(fileName.charAt(i))))
    					{
 	   					vowelName++;
    					}
 	   			}
     	   		
+    	   		//Prints vowel count
     	   		System.out.println("The file " + fileName + " contains " + vowelSum + " vowels. Its name contains " + vowelName + " vowels.");
     	   		
     	   		//close BufferedReader object

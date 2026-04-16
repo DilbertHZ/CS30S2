@@ -1,3 +1,16 @@
+/*
+
+Program: StudentSemesterAverage.java          Last Date of this Revision: April 9, 2026
+
+Purpose: An application that calculates and saves a students grade average to a file.
+
+Author: Hunter Zahn, 
+School: CHHS
+Course: Computer Programming 30
+ 
+
+*/
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -162,6 +175,7 @@ public class StudentSemesterAverage {
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				//Declare variables from user inputs
 				String stuName = textFieldName.getText();
 				int gradeLevel = Integer.parseInt(textFieldGradeLvl.getText());
 				int semesterNum = Integer.parseInt(textFieldSemester.getText());
@@ -170,6 +184,7 @@ public class StudentSemesterAverage {
 				double grade3 = Double.parseDouble(textFieldGrade3.getText());
 				double grade4 = Double.parseDouble(textFieldGrade4.getText());
 				
+				//Calculate average grade
 				double average = (grade1 + grade2 + grade3 + grade4) / 4;
 				
 				//Create a File object with the name of your file is the parameter
@@ -186,6 +201,7 @@ public class StudentSemesterAverage {
 					out = new FileWriter(dataFile);
 					writeFile = new BufferedWriter(out);
 					
+					//Writes info to file
 					writeFile.write("Name: " + stuName + " Grade level: " + gradeLevel + " Semester: " + semesterNum 
 							+ " Grade 1: " + grade1 + " Grade 2: " + grade2  + " Grade 3: " + grade3  + " Grade 4: " + grade4  + " Grade average: " + average);
 					
@@ -221,6 +237,7 @@ public class StudentSemesterAverage {
 					in = new FileReader(dataFile);
 					readFile = new BufferedReader(in);
 					
+					//Sets text area to the information read from the text file
 					txtAreaFileData.setText(readFile.readLine());
 				
 					readFile.close();

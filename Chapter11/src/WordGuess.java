@@ -1,3 +1,16 @@
+/*
+
+Program: WordGuess.java          Last Date of this Revision: April 9, 2026
+
+Purpose: An application that plays a word guessing game.
+
+Author: Hunter Zahn, 
+School: CHHS
+Course: Computer Programming 30
+ 
+
+*/
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
